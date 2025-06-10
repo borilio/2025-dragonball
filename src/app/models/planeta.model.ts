@@ -1,7 +1,7 @@
 import { Personaje } from "./personaje.model";
 
 export interface Planeta {
-    id:          number;
+    id?:         number;
     name:        string;
     isDestroyed: boolean;
     description: string;
