@@ -1,1 +1,33 @@
-<p>listado-personajes works!</p>
+<div class="container">
+  @if (cargando) {
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  }
+    
+  <div class="row">
+    @for (personaje of this.personajes; track personajes) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+      <div class="card m-3 shadow" style="width: 18rem;">
+        <img [src]="personaje.image" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{personaje.name}}</h5>
+          <p class="card-text">{{personaje.race}} ({{personaje.gender}})</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ki <span class="badge text-light bg-info">{{personaje.ki}}</span> </li>
+          <li class="list-group-item"></li>
+          <li class="list-group-item">Afiliación: {{personaje.affiliation}} </li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Un enlace</a>
+          <a href="#" class="card-link">Otro enlace</a>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+</div>
