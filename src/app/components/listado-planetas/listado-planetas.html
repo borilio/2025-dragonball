@@ -1,1 +1,50 @@
-<p>listado-planetas works!</p>
+<div>
+
+    <!-- Barra de progreso que solo se muestra cuando cargando == true -->
+    @if (cargando) {
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow text-info" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+    }
+
+    @if (hayError) {
+    <div class="alert alert-danger">
+        <span>No se han podido obtener datos del servidor</span>
+    </div>
+    } @else {
+    <!-- Tabla -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (planeta of planetas; track planetas) {
+            <tr>
+                <td>{{planeta.id}}</td>
+                <td>{{planeta.name}}</td>
+                <td>{{planeta.isDestroyed ? "Destruido": "Estable"}}</td>
+                <td>
+                    <img [src]="planeta.image" style="width: 3rem;" />
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary me-2">🔍</button>
+                    <button class="btn btn-outline-primary me-2">🗑️</button>
+                    <button class="btn btn-outline-primary me-2">🔥</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+    }
+
+</div>
+<div class="mb-5"></div>

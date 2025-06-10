@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Raw } from '../models/raw.model';
+import { RawPersonaje } from '../models/raw-personaje.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class PersonajeService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getPersonajes(): Observable<Raw> {
-    return this.httpClient.get<Raw>("https://dragonball-api.com/api/characters?limit=100");
+  public getPersonajes(): Observable<RawPersonaje> {
+    return this.httpClient.get<RawPersonaje>("https://dragonball-api.com/api/characters?limit=100");
   }
 
 

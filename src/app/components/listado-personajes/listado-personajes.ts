@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personaje } from '../../models/personaje.model';
 import { PersonajeService } from '../../services/personaje.service';
-import { Raw } from '../../models/raw.model';
+import { RawPersonaje } from '../../models/raw-personaje.model';
 
 @Component({
   selector: 'app-listado-personajes',
@@ -20,7 +20,7 @@ export class ListadoPersonajes implements OnInit {
   
   ngOnInit(): void {
     this.personajeService.getPersonajes().subscribe(
-      (datos: Raw) => {
+      (datos: RawPersonaje) => {
         // Han llegado los datos correctamente
         console.log(datos.items);
         this.personajes = datos.items;

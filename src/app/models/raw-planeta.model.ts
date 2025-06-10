@@ -1,7 +1,7 @@
-import { Personaje } from "./personaje.model";
+import { Planeta } from "./planeta.model";
 
-export interface Raw {
-    items: Personaje[];
+export interface RawPlaneta {
+    items: Planeta[];
     meta:  Meta;
     links: Links;
 }
